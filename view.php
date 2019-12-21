@@ -84,6 +84,7 @@ mysqli_close($sql);
   <script type="text/javascript">
     var defaultTitle = '<?php echo addslashes($get_data["title"]); ?>';
     var defaultContent = '<?php echo addslashes($get_data["content"]); ?>';
+    var viewing = true;
   </script>
   <script src="js/utils.js"></script>
   <script src="js/editor.js"></script>

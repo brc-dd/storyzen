@@ -50,6 +50,9 @@
     <script src="js/libs/screenfull.min.js"></script>
 
     <!-- JS -->
+    <script type="text/javascript">
+        var viewing = false;
+    </script>
     <script src="js/default.js"></script>
     <script src="js/utils.js"></script>
     <script src="js/editor.js"></script>

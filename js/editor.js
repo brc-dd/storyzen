@@ -168,18 +168,20 @@ ZenPen.editor = (function () {
 	}
 
 	function saveState(event) {
-		localStorage['header'] = headerField.innerHTML;
-		localStorage['content'] = contentField.innerHTML;
+		if (!viewing) {
+			localStorage['header'] = headerField.innerHTML;
+			localStorage['content'] = contentField.innerHTML;
+		}
 	}
 
 	function loadState() {
-		if (localStorage['header']) {
+		if (localStorage['header'] && !viewing) {
 			headerField.innerHTML = localStorage['header'];
 		} else {
 			headerField.innerHTML = defaultTitle; // in default.js
 		}
 
-		if (localStorage['content']) {
+		if (localStorage['content'] && !viewing) {
 			contentField.innerHTML = localStorage['content'];
 		} else {
 			loadDefaultContent()
