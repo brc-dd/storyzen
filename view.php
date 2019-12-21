@@ -81,7 +81,7 @@ mysqli_close($sql);
   <script src="js/libs/screenfull.min.js"></script>
 
   <!-- JS -->
-  <script>
+  <script type="text/javascript">
     var defaultTitle = '<?php echo addslashes($get_data["title"]); ?>';
     var defaultContent = '<?php echo addslashes($get_data["content"]); ?>';
   </script>
@@ -93,7 +93,7 @@ mysqli_close($sql);
     ZenPen.editor.init();
     ZenPen.ui.init();
   </script>
-  <script>
+  <script type="text/javascript">
     let links = document.getElementsByTagName('a');
     for (let i = 0; i < links.length; i++) {
       links[i].target = '_blank';
