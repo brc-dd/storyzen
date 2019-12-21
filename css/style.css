@@ -1,0 +1,318 @@
+/*!
+ * ZenPen
+ * http://www.zenpen.io
+ * MIT licensed
+ *
+ * Copyright (C) Tim Holman, http://tholman.com
+ */
+/*!
+ * Modified for StoryZen by Divyansh Singh
+ * https://github.com/brc-dd/storyzen
+ * MIT licensed
+ *
+ * Some rights reserved for the changes introduced in
+ * https://github.com/brc-dd/storyzen/blob/master/css/style.css
+ * when compared with the original document
+ * https://github.com/tholman/zenpen/blob/master/css/style.css
+*/
+
+/*********************************************
+ * BASE STYLES
+ *********************************************/
+
+* {
+    box-sizing: border-box;
+}
+
+*:focus {
+    outline: none;
+}
+
+html {
+    overflow: hidden;
+}
+
+
+html,
+body {
+    font-family: 'Lora', serif;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+
+body {
+    padding: 20px 10px 40px;
+    overflow-y: scroll;
+    min-width: 800px;
+    width: 100%;
+	transition: all 600ms;
+	background: #fdfdfd;
+    color: #111;
+}
+
+section {
+    max-width: 600px;
+    height: 100%;
+    margin: auto;
+}
+
+header {
+    font-weight: bold;
+    font-size: 38px;
+    word-wrap: break-word;
+}
+
+article {
+    padding-bottom: 50px;
+    line-height: 30px;
+    margin-top: 22px;
+    min-height: 90%;
+    font-size: 22px;
+    display: block;
+    word-wrap: break-word;
+}
+
+blockquote {
+    border-left: 4px solid deepskyblue;
+    margin-left: -19px;
+    padding-left: 15px;
+    margin-right: 0;
+}
+
+.no-overflow {
+    overflow: hidden;
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+/* Used by the ui bubble to stop wrapping */
+.lengthen {
+    display: block;
+    width: 300px;
+    height: 100%;
+}
+
+.useicons {
+    -webkit-font-smoothing: antialiased;
+    font-size: 20px !important;
+    font-family: 'icomoon' !important;
+}
+
+.buttons:hover button {
+    opacity: .4;
+}
+
+.buttons button:hover {
+    opacity: 1;
+}
+
+.text-options button {
+    transition: opacity 400ms;
+    font-family: inherit;
+    background: none;
+    cursor: pointer;
+    font-size: 25px;
+    color: inherit;
+    opacity: .1;
+    padding: 0;
+    height: 32px;
+    width: 25px;
+    border: 0;
+}
+
+.buttons button {
+    transition: opacity 400ms;
+    font-family: inherit;
+    background: none;
+    cursor: pointer;
+    font-size: 25px;
+    color: inherit;
+    opacity: .7;
+    padding: 5px 10px 37px 10px;
+    height: 32px;
+    width: auto;
+    border: 2px solid #111;
+    border-radius: 32px;
+}
+
+.buttons {
+    float: right;
+    padding-top: 5px;
+    padding-right: 100px;
+    position: relative;
+}
+
+a {
+    text-decoration: none;
+    color: deepskyblue;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.overlay {
+    position: fixed;
+    display: none;
+    height: 100%;
+    width: 100%;
+    z-index: 3;
+    left: 0;
+    top: 0;
+}
+
+.quote {
+    line-height: 60px !important;
+    font-size: 49px !important;
+}
+
+/*********************************************
+ * UI BUBBLE
+ *********************************************/
+
+.text-options {
+    transition: opacity 250ms, margin 250ms;
+    position: absolute;
+    left: -999px;
+    top: -999px;
+    color: #fff;
+    height: 0;
+    width: 0;
+    z-index: 5;
+    margin-top: 5px;
+    opacity: 0;
+}
+
+.text-options.fade {
+    opacity: 0;
+    margin-top: -5px;
+}
+
+.text-options.active {
+    opacity: 1;
+    margin-top: 0;
+}
+
+.options {
+    background-color: rgba(0, 0, 0, .9);
+    position: absolute;
+    border-radius: 5px;
+    margin-left: -63px;
+    margin-top: -46px;
+    z-index: 1000;
+    padding: 5px 4px 5px 5px;
+    width: 125px;
+    height: 40px;
+    transition: all 300ms ease-in-out;
+}
+
+.options.url-mode {
+    width: 275px;
+    margin-left: -137px;
+}
+
+.options.url-mode .bold,
+.options.url-mode .italic,
+.options.url-mode .quote {
+    width: 0;
+    overflow: hidden;
+    margin-right: 0;
+    opacity: 0;
+}
+
+.options .italic {
+    font-style: italic;
+}
+
+.options button {
+    transition: all 250ms ease-in-out;
+    float: left;
+    width: 28px;
+    opacity: .7;
+    height: 30px;
+    border-radius: 3px;
+    margin-right: 1px;
+    font-family: 'Lora', serif;
+}
+
+.options.url-mode input {
+    border-left: 2px solid transparent;
+    padding-right: 5px;
+    padding-left: 5px;
+    width: 236px;
+}
+
+.options input {
+    transition: all 300ms ease-in-out;
+    border-radius: 3px;
+    overflow: hidden;
+    outline: 0;
+    height: 30px;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    float: left;
+    width: 0;
+}
+
+.options button.active {
+    background-color: rgba(255, 255, 255, .4);
+    opacity: 1;
+}
+
+.options button:hover{
+    opacity: .95;
+}
+
+.options:before {
+    content: "";
+    border-top: 5px solid rgba(0, 0, 0, .9);
+    border-bottom: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    position: absolute;
+    margin-left: -5px;
+    bottom: -15px;
+    height: 5px;
+    width: 0;
+    left: 50%;
+}
+
+.url {
+    -webkit-font-smoothing: antialiased;
+}
+
+.top {
+    position: absolute;
+    top: 0px;
+    left: auto;
+    right: 20px;
+}
+
+.bottom {
+    position: absolute;
+    bottom: 0;
+}
+
+
+/*********************************************
+ * PRINT
+ *********************************************/
+
+@media print {
+
+    body {
+        overflow: visible;
+    }
+
+    section {
+        color: #111 !important;
+    }
+
+    .text-options,
+    .ui {
+        display: none;
+    }
+}
