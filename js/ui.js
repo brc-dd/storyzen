@@ -27,13 +27,8 @@ ZenPen.ui = (function () {
 		var bodyText = document.querySelector('article.content').innerHTML.replace(/\t/g, '    ');
 		var story = { "title": headerText, "content": bodyText };
 		var dbParam = JSON.stringify(story);
-		if (window.XMLHttpRequest) {
-			// code for IE7+, Firefox, Chrome, Opera, Safari
-			var xmlhttp = new XMLHttpRequest();
-		} else {
-			// code for IE6, IE5
-			var xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-		}
+		// code for IE7+, Firefox, Chrome, Opera, Safari
+		var xmlhttp = new XMLHttpRequest();
 		xmlhttp.onreadystatechange = function () {
 			if (this.readyState == 4 && this.status == 200) {
 				localStorage.clear();
