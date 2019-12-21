@@ -5,7 +5,7 @@ A one-click publishing tool combined with a minimal editor.
 ## How to Deploy
 
 1. Download as zip from GitHub\'s ___clone or download___ option.
-2. Unzip to your `www` or `htdocs` folder as per your requirements.
+2. Unzip to your `www` or `htdocs` folder according to your configuration.
 3. Run the query inside `sql.sql` to create a table named `stories`.
 4. Edit `config.php` and fill your SQL details and you\'re ready to go!
 
